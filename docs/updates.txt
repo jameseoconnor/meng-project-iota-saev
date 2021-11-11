@@ -1,0 +1,2 @@
+Git not picking up changes to word doc, so have to use txt file
+Added lit review outline
