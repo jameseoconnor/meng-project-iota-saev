@@ -8,9 +8,9 @@ https://github.com/anistark/iota-dev-series.git/
 
 
 
-## Author **James O&#39;Connor**
+### Author **James O&#39;Connor**
 
-### **Masters in Engineering (MEng) in Connected and Autonomous Vehicles**
+#### **Masters in Engineering (MEng) in Connected and Autonomous Vehicles**
 
 #### Institute of Technology, Sligo
 
@@ -76,7 +76,7 @@ In order to examine the new IOTA 2.0 framework and its applications in detail, t
 
 # CHAPTER TWO
 
-## 2.Literature Review
+## 2. Literature Review
 
 ### 2.1 Distributed Ledger Technology
 
@@ -94,7 +94,7 @@ DLT has been around in concept since the mid 1990s, built on a thought experimen
 
 Ethereum is another open-source blockchain protocol second in popularity and similar to the Bitcoin protocol, but with the addition of smart contract functionality. Smart contracts are codified business rules that automatically execute on network nodes allowing the network to operate in a fully autonomous and decentralized manner [20].
 
-#### 2.1.1.1How it works – Need to Expand
+#### 2.1.1.1 How it works – Need to Expand
 
 Unverified transactions are collected in a &quot;mempool&quot;, then organised into a logical data structure called a block, and finally a hash function is computed by miners using the block data, the previous block hash, a random integer and the current block number.
 
