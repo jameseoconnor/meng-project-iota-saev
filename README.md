@@ -3,9 +3,7 @@
 ![Project Plan](https://github.com/jameseoconnor/meng-project-iota-saev/blob/main/docs/project_plan.png)
 
 
-## Some of the code based on IOTA Dev Series
-https://github.com/anistark/iota-dev-series.git/
-
+Some of the code based on IOTA Dev Series: https://github.com/anistark/iota-dev-series.git/
 
 
 ### Author **James O&#39;Connor**
