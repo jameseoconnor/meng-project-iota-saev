@@ -1,0 +1,19 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@iota/client": "^1.0.1",
+    "@iota/client-wasm": "^0.2.0",
+    "@iota/mqtt.js": "^1.8.1",
+    "axios": "^0.21.4",
+    "dotenv": "^10.0.0"
+  }
+}
