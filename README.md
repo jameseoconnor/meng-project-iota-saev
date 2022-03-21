@@ -2,9 +2,9 @@
 
 ![Project Plan](https://github.com/jameseoconnor/meng-project-iota-saev/blob/main/docs/project_plan.png)
 
-
 Some of the code based on IOTA Dev Series: https://github.com/anistark/iota-dev-series.git/
 
+Live IOTA Node running at: http://54.177.214.21:8081/
 
 ### Author **James O&#39;Connor**
 
@@ -13,7 +13,6 @@ Some of the code based on IOTA Dev Series: https://github.com/anistark/iota-dev-
 #### Institute of Technology, Sligo
 
 Supervisor of Research: Donny Hurley
-
 
 # CHAPTER ONE
 
@@ -128,7 +127,7 @@ The above literature is a review of blockchain-based DLTs. IOTA is a little diff
 
 The IOTA framework was founded in 2015 by Sergey Ivancheglo, Serguei Popov, David Sønstebø, and Dominik Schiener in Berlin. The IOTA Foundation defines IOTA as &quot;an open, feeless data and value transfer protocol&quot;. It is based on DLT principles and was originally built specifically for the IoT industry. While also considered a DLT, its underlying ledger data structure is not based on a chain of blocks but rather a Directed Acyclic Graph (DAG) data structure. Coined by the foundation, &quot;The Tangle&quot; is a moniker for this DAG data structure on which the network is based [27].
 
-At the core of all DLTs is a _ledger_, a _network of__nodes_ and _transactions_. In the context of the IOTA framework, the words transaction and message are used interchangeably. The term ledger and the Tangle are also used interchangeably The three components are outlined below.
+At the core of all DLTs is a _ledger_, a _network of\_\_nodes_ and _transactions_. In the context of the IOTA framework, the words transaction and message are used interchangeably. The term ledger and the Tangle are also used interchangeably The three components are outlined below.
 
 #### 2.2.1 The Tangle (The IOTA Ledger)
 
@@ -240,7 +239,6 @@ As with many technologies, the approach to V2X standards and protocols has varie
 
 DSRC allows for _direct_ communication (i.e. it does not use any cellular infrastructure) between OBUs and RSUs only. This makes it easy to secure, and very low-latency. When the DSRC protocol was originally developed, the state-of-the-art cellular technology was 3G which could not provide the latency required for high-speed and secure communication between vehicles, as it had to pass via a cellular tower, therefore was not considered an option for this application. Since then, cellular technology has evolved over two radical generations, namely 4G-LTE and 5G. For context, 4G is approximately 500 times faster than 3G, and 5G is purported to be 100 times faster than 4G, with higher peak capacity, larger bandwidth and lower latency [45]. This has allowed the cellular C-V2X standard to emerge as a contender, however, it is a relatively new technology with the first specification released in 2016 and earliest trial only taking place in 2017 [46]. For reference, figure X below gives a conceptual overview of the two system architectures.
 
-
 **Figure 5: DSRC Vs Cellular Concept [47]**
 
 More recently, the Third Generation Partnership Project (3GPP) 4G Release 14 allowed for direct device-to-device communication. In the context of V2X communication, this meant that cellular networks could be used in the same way that traditional DSRC operates, by jumping between devices _without_ first hitting the cellular tower, for low latency mission-critical vehicle sensor connectivity [48].
@@ -248,7 +246,6 @@ More recently, the Third Generation Partnership Project (3GPP) 4G Release 14 all
 A recent study by [44] compares the two V2X systems, showing that in general C-V2X performed better than its older ITS-G5 counterpart. Interestingly however, this study showed that this is only the case when there are less than 150 users per km^2, and after this the performance of the C-V2X system deteriorates faster than the ITS-G5 system, indicating that there is no clear winner. A key performance indicator for V2X system performance is latency, however this study was inconclusive in naming the optimal solution as it is highly dependent on operating range and user density. Similar studies evaluating the two systems were undertaken by [47, 49], the former showing that in 2017 DSRC outperforms C-V2X and the latter contradicting that opinion on 2019, showing a preference for C-V2X.
 
 **DSRC vs C-V2X Stack Comparison**
-
 
 **Figure 6: DSRC Versus C-V2X Architectures [50]**
 
@@ -300,7 +297,7 @@ There have been multiple studies undertaken to find a way to intelligently detec
 
 [1] ABIResearch. &quot;ABI Research Forecasts 8 Million Vehicles to Ship with SAE Level 3, 4 and 5 Autonomous Technology in 2025.&quot; [https://www.abiresearch.com/press/abi-research-forecasts-8-million-vehicles-ship-sae-level-3-4-and-5-autonomous-technology-2025/](https://www.abiresearch.com/press/abi-research-forecasts-8-million-vehicles-ship-sae-level-3-4-and-5-autonomous-technology-2025/) (accessed October 31, 2020, 2020).
 
-[2] _Taxonomy and Definitions for Terms Related to Driving Automation Systems for On-Road Motor Vehicles_, S. International, 2021. [Online]. Available: [https://www.sae.org/standards/content/j3016\_202104/](https://www.sae.org/standards/content/j3016_202104/)
+[2] _Taxonomy and Definitions for Terms Related to Driving Automation Systems for On-Road Motor Vehicles_, S. International, 2021. [Online]. Available: [https://www.sae.org/standards/content/j3016_202104/](https://www.sae.org/standards/content/j3016_202104/)
 
 [3] A. Alnasser, H. Sun, and J. Jiang, &quot;Cyber security challenges and solutions for V2X communications: A survey,&quot; _Computer Networks,_ vol. 151, pp. 52-67, 2019-03-01 2019, doi: 10.1016/j.comnet.2018.12.018.
 
@@ -308,7 +305,7 @@ There have been multiple studies undertaken to find a way to intelligently detec
 
 [5] NHTSA. &quot;Automated Vehicles for Safety.&quot; NHTSA. [https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety/](https://www.nhtsa.gov/technology-innovation/automated-vehicles-safety/) (accessed 19th Oct, 2021).
 
-[6] I. Foundation. &quot;What is IOTA.&quot; The IOTA Foundation. [https://www.iota.org/get-started/what-is-iota](https://www.iota.org/get-started/what-is-iota) (accessed October 19th  2021).
+[6] I. Foundation. &quot;What is IOTA.&quot; The IOTA Foundation. [https://www.iota.org/get-started/what-is-iota](https://www.iota.org/get-started/what-is-iota) (accessed October 19th 2021).
 
 [7] R. Zhang, R. Xue, and L. Liu, &quot;Security and Privacy on Blockchain,&quot; _ACM Computing Surveys,_ vol. 52, no. 3, pp. 1-34, 2019-07-27 2019, doi: 10.1145/3316481.
 
@@ -374,7 +371,7 @@ Byzantine Infrastructures,&quot; _Journal of Parallel and Distributed Computing,
 
 [36] O. Lamtzidis and J. Gialelis, &quot;An IOTA Based Distributed Sensor Node System,&quot; in _2018 IEEE Globecom Workshops (GC Wkshps)_, 2018-12-01 2018: IEEE, doi: 10.1109/glocomw.2018.8644153.
 
-[37] D. Strugar, R. Hussain, M. Mazzara, V. Rivera, J. Young Lee, and R. Mustafin, &quot;On M2M Micropayments: A Case Study of Electric Autonomous Vehicles,&quot; in _2018 IEEE International Conference on Internet of Things (iThings) and IEEE Green Computing and Communications (GreenCom) and IEEE Cyber, Physical and Social Computing (CPSCom) and IEEE Smart Data (SmartData)_, 2018-07-01 2018: IEEE, doi: 10.1109/cybermatics\_2018.2018.00283.
+[37] D. Strugar, R. Hussain, M. Mazzara, V. Rivera, J. Young Lee, and R. Mustafin, &quot;On M2M Micropayments: A Case Study of Electric Autonomous Vehicles,&quot; in _2018 IEEE International Conference on Internet of Things (iThings) and IEEE Green Computing and Communications (GreenCom) and IEEE Cyber, Physical and Social Computing (CPSCom) and IEEE Smart Data (SmartData)_, 2018-07-01 2018: IEEE, doi: 10.1109/cybermatics_2018.2018.00283.
 
 [38] P. C. Bartolomeu, E. Vieira, and J. Ferreira, &quot;IOTA Feasibility and Perspectives for Enabling Vehicular Applications,&quot; in _2018 IEEE Globecom Workshops (GC Wkshps)_, 2018-12-01 2018: IEEE, doi: 10.1109/glocomw.2018.8644201.
 
@@ -406,7 +403,7 @@ ITS-G5 for Vehicular Channel Models,&quot; _Wireless Communication &amp; Navigat
 
 [51] (2016). _Security Credential Management System_
 
-_Proof–of–Concept Implementation_. [Online] Available: [https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/2896/2019/04/SCMS\_POC\_EE\_Requirements.pdf](https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/2896/2019/04/SCMS_POC_EE_Requirements.pdf)
+_Proof–of–Concept Implementation_. [Online] Available: [https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/2896/2019/04/SCMS_POC_EE_Requirements.pdf](https://pronto-core-cdn.prontomarketing.com/2/wp-content/uploads/sites/2896/2019/04/SCMS_POC_EE_Requirements.pdf)
 
 [52] A. Tesei, L. Di Mauro, M. Falcitelli, S. Noto, and P. Pagano, &quot;IOTA-VPKI: A DLT-Based and Resource Efficient Vehicular Public Key Infrastructure,&quot; in _2018 IEEE 88th Vehicular Technology Conference (VTC-Fall)_, 2018-08-01 2018: IEEE, doi: 10.1109/vtcfall.2018.8690769.
 
