@@ -13,7 +13,8 @@ const { readFileSync, writeFileSync, write } = require("fs");
 streams.set_panic_hook();
 
 // Node settings
-let node = "https://chrysalis-nodes.iota.org/";
+// let node = "https://chrysalis-nodes.iota.org/";
+let node = "https://api.thin-hornet-1.h.chrysalis-devnet.iota.cafe";
 let options = new streams.SendOptions(node, 9, true, 1);
 
 async function createAuthor() {
