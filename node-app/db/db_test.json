@@ -1,0 +1,27 @@
+{
+  "Runs": [
+    {
+      "run_date": "12345678",
+      "internet_speed_avg": "",
+      "local_pow": true,
+      "type": "iota",
+      "data": [
+        {
+          "timeToSync": 122,
+          "timeToReceiveMessage": 1022,
+          "packet_size_kb": 2
+        },
+        {
+          "timeToSync": 122,
+          "timeToReceiveMessage": 1022,
+          "packet_size_kb": 2
+        },
+        {
+          "timeToSync": 122,
+          "timeToReceiveMessage": 1022,
+          "packet_size_kb": 2
+        }
+      ]
+    }
+  ]
+}

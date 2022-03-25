@@ -1,0 +1,25 @@
+{
+  "name": "iota-streams-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@iota/client": "^2.2.3",
+    "@iota/streams": "0.1.2",
+    "axios": "^0.26.1",
+    "buffer": "^6.0.3",
+    "Buffer": "^0.0.0",
+    "concurrently": "^7.0.0",
+    "csv-parser": "^3.0.0",
+    "csv-write-stream": "^2.0.0",
+    "csv-writer": "^1.6.0",
+    "fast-cli": "^3.2.0",
+    "mysql": "^2.18.1",
+    "network-speed": "^2.1.1",
+    "node-fetch": "^2.6.1",
+    "yargs": "^17.3.1"
+  }
+}
