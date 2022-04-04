@@ -8,15 +8,18 @@ const { calculateTimeBetween } = require("./helpers");
 streams.set_panic_hook();
 
 const auth_host = "http://54.177.214.21";
-const sub_host = "http://87.245.91.216";
+const sub_host = "http://54.177.214.21";
+// const auth_host = "http://3.0.50.236";
+// const sub_host = "http://3.0.50.236";
+
 const iota_port = "14265";
 const node_port = "3000";
 
 main_iota()
   .then(() => {
-    main_node_http().then(() => {
-      console.log("Done example");
-    });
+    // main_node_http().then(() => {
+    console.log("Done example");
+    // });
   })
   .catch((err) => {
     console.log(err);
@@ -54,6 +57,9 @@ async function main_iota() {
   let seed2 = make_seed(81);
   let sub = new streams.Subscriber(seed2, sub_options.clone());
   console.log("Sub client: " + sub.get_client());
+
+  console.log("Subscriber syncing...");
+  await sub.clone().sync_state();
 
   // Subscriber Recieves Announcement Link from Author
   await sub.clone().receive_announcement(ann_link.copy());
@@ -95,7 +101,7 @@ async function main_iota() {
     "packet_size_bytes",
   ];
 
-  for (let index = 1; index < 20; index++) {
+  for (let index = 1; index < 50; index++) {
     console.log("IOTA client info:", await auth_client.getInfo());
 
     console.log(`\nStarting run ${index}..`);
@@ -115,7 +121,8 @@ async function main_iota() {
 
     // Generate the payload
     let packet_size_pow = Math.ceil(index / 10);
-    let packet_size_bytes = 1 * 2 ** packet_size_pow;
+    // let packet_size_bytes = 1000 * 2 ** packet_size_pow;
+    let packet_size_bytes = 2 ** packet_size_pow;
     let rand_data = await crypto.randomBytes(packet_size_bytes);
 
     let public_payload = to_bytes(`${currTime}`);
@@ -200,7 +207,7 @@ async function send_data_node(data) {
   return_data = "";
   //
   await axios
-    .post(`${host}:${node_port}/post/${timestamp}`, {
+    .post(`${auth_host}:${node_port}/post/${timestamp}`, {
       data: data,
     })
     .then((res) => {
