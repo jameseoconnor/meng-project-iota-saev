@@ -11,6 +11,7 @@ const auth_host = "http://54.177.214.21";
 const sub_host = "http://54.177.214.21";
 // const auth_host = "http://3.0.50.236";
 // const sub_host = "http://3.0.50.236";
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const iota_port = "14265";
 const node_port = "3000";
@@ -24,6 +25,14 @@ main_iota()
   .catch((err) => {
     console.log(err);
   });
+
+// main_node_http()
+//   .then(() => {
+//     console.log("Done example");
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 async function main_iota() {
   local_pow = false;
@@ -101,7 +110,7 @@ async function main_iota() {
     "packet_size_bytes",
   ];
 
-  for (let index = 1; index < 50; index++) {
+  for (let index = 1; index < 100; index++) {
     console.log("IOTA client info:", await auth_client.getInfo());
 
     console.log(`\nStarting run ${index}..`);
@@ -180,8 +189,10 @@ async function main_node_http() {
   file_headers = ["datetime", "timeToReceiveMessage", "packet_size_bytes"];
 
   for (let index = 1; index < 50; index++) {
+    await delay(1000);
     let packet_size_pow = Math.ceil(index / 10);
     let packet_size_bytes = 1000 * 2 ** packet_size_pow;
+    // let packet_size_bytes = 200 * packet_size_pow;
     let rand_data = await crypto.randomBytes(packet_size_bytes);
 
     timeToReceiveMessage = await send_data_node(rand_data);
