@@ -129,7 +129,7 @@ async function main_iota() {
     currTime = Date.now();
 
     // Generate the payload
-    let packet_size_pow = Math.ceil(index / 10);
+    let packet_size_pow = 6 - Math.ceil(index / 10);
     // let packet_size_bytes = 1000 * 2 ** packet_size_pow;
     let packet_size_bytes = 2 ** packet_size_pow;
     let rand_data = await crypto.randomBytes(packet_size_bytes);
