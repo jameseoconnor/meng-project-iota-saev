@@ -16,6 +16,16 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const iota_port = "14265";
 const node_port = "3000";
 
+const keypress = async () => {
+  process.stdin.setRawMode(true);
+  return new Promise((resolve) =>
+    process.stdin.once("data", () => {
+      process.stdin.setRawMode(false);
+      resolve();
+    })
+  );
+};
+
 main_iota()
   .then(() => {
     // main_node_http().then(() => {
@@ -40,7 +50,8 @@ async function main_iota() {
   let sub_node = `${sub_host}:${iota_port}`;
   let same_auth_sub = auth_node === sub_node ? true : false;
   let sub_options = new streams.SendOptions(sub_node, local_pow);
-
+  console.log("\nPress any key to create a new Author channel");
+  await keypress();
   // Create Author
   const auth_client = await new streams.ClientBuilder().node(auth_node).build();
   let seed = make_seed(81);
@@ -49,52 +60,63 @@ async function main_iota() {
     seed,
     streams.ChannelType.SingleBranch
   );
-
-  console.log("channel address: ", auth.channel_address());
-  console.log("multi branching: ", auth.is_multi_branching());
-  console.log("IOTA auth client info:", await auth_client.getInfo());
+  console.log("\nIOTA Streams Channel Created!");
+  console.log("\nChannel Address: ", auth.channel_address());
+  console.log("\nIOTA auth client info:", await auth_client.getInfo());
 
   // Announce Channel
+  console.log("\nPress any key to announce the channel to the network");
+  await keypress();
   let response = await auth.clone().send_announce();
   let ann_link = response.link;
-  console.log("announced at: ", ann_link.toString());
-  console.log("Announce message index: " + ann_link.toMsgIndexHex());
+  console.log("\nChannel announced at: ", ann_link.toString());
   let details = await auth.clone().get_client().get_link_details(ann_link);
-  console.log("Announce message id: " + details.get_metadata().message_id);
+  console.log("\nAnnounce message id: " + details.get_metadata().message_id);
 
   // Create SUbscriber
+  console.log(
+    "\nPress any key to create a channel subscriber and subscribe to author channel"
+  );
+  await keypress();
   let seed2 = make_seed(81);
   let sub = new streams.Subscriber(seed2, sub_options.clone());
-  console.log("Sub client: " + sub.get_client());
 
-  console.log("Subscriber syncing...");
+  console.log("\nSubscriber syncing...");
+  console.log("\nSubscriber created!");
   await sub.clone().sync_state();
 
   // Subscriber Recieves Announcement Link from Author
   await sub.clone().receive_announcement(ann_link.copy());
   let author_pk = sub.author_public_key();
   console.log(
-    "Channel registered by subscriber, author's public key: ",
+    "\nChannel registered by subscriber, author's public key: ",
     author_pk
   );
 
   // Subscriber subscribes to channel
-  console.log("Subscribing...");
+  console.log("\nSubscribing...");
+
   response = await sub.clone().send_subscribe(ann_link.copy());
   let sub_link = response.link;
-  console.log("Subscription message at: ", sub_link.toString());
-  console.log("Subscription message index: " + sub_link.toMsgIndexHex());
+  console.log("\nSubscription message at: ", sub_link.toString());
+  console.log("\nSubscription message index: " + sub_link.toMsgIndexHex());
+  console.log("\nSubscribed!");
 
   // Author Receives Subscription
   await auth.clone().receive_subscribe(sub_link.copy());
-  console.log("Subscription processed");
+  console.log("\nSubscription processed by author");
 
   // Author sends keyload (the root message)
-  console.log("Sending Keyload");
+  console.log(
+    "\nPress any key to send root message from author to subscribers"
+  );
+  await keypress();
+
+  console.log("\nSending Keyload");
   response = await auth.clone().send_keyload_for_everyone(ann_link.copy());
   let keyload_link = response.link;
-  console.log("Keyload message at: ", keyload_link.toString());
-  console.log("Keyload message index: " + keyload_link.toMsgIndexHex());
+  console.log("\nKeyload message at: ", keyload_link.toString());
+  console.log("\nKeyload message index: " + keyload_link.toMsgIndexHex());
 
   // THe stuff we want to happen more than once
 
@@ -111,7 +133,10 @@ async function main_iota() {
   ];
 
   for (let index = 1; index < 100; index++) {
-    console.log("IOTA client info:", await auth_client.getInfo());
+    console.log(
+      "\nPress any key to send a message from subscriber to the channel"
+    );
+    await keypress();
 
     console.log(`\nStarting run ${index}..`);
     console.log("\nSubscriber syncing...");
@@ -138,21 +163,18 @@ async function main_iota() {
     let masked_payload = rand_data;
 
     console.log(
-      `Subscriber Sending tagged packet. Size ${packet_size_bytes} bytes`
+      `\nSubscriber Sending tagged packet. Size ${packet_size_bytes} bytes`
     );
 
     response = await sub
       .clone()
       .send_tagged_packet(response.link, public_payload, masked_payload);
 
-    console.log("Tag packet at: ", response.link.toString());
-    console.log("Tag packet index: " + response.link.toMsgIndexHex());
-
     console.log("\nAuthor fetching next messages");
     for (const msg of await auth.clone().fetch_next_msgs()) {
-      console.log("Found a message...");
+      console.log("\nFound a message...");
       console.log(
-        "Public: ",
+        "\nPublic: ",
         from_bytes(msg.message.get_public_payload()),
         "\tMasked: ",
         from_bytes(msg.message.get_masked_payload())
@@ -162,7 +184,7 @@ async function main_iota() {
       currTime = Date.now();
 
       timeToReceiveMessage = calculateTimeBetween(
-        "Time taken for author to receive message",
+        "\nTime taken for author to receive message",
         from_bytes(msg.message.get_public_payload()),
         currTime
       );
